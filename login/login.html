@@ -1,0 +1,111 @@
+<!DOCTYPE html>
+<html lang="fr">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Login</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+</head>
+<body>
+    <div class="container">
+        <div class="form-container">
+            <div class="form-box login-form">
+                <h2>Connexion</h2>
+                <form id="loginForm">
+                    <div class="input-group">
+                        <i class="fas fa-envelope"></i>
+                        <input type="email" id="loginEmail" placeholder="Email" required>
+                    </div>
+                    
+                    <div class="input-group">
+                        <i class="fas fa-lock"></i>
+                        <input type="password" id="loginPassword" placeholder="Mot de passe" required>
+                        <i class="fas fa-eye toggle-password" onclick="togglePassword('loginPassword')"></i>
+                    </div>
+                    
+                    <div class="remember-forgot">
+                        <label>
+                            <input type="checkbox" id="rememberMe">
+                            <span>Se souvenir de moi</span>
+                        </label>
+                        <a href="#" class="forgot-link">Mot de passe oublié?</a>
+                    </div>
+                    
+                    <button type="submit" class="submit-btn">Se connecter</button>
+                    
+                    <div class="divider">
+                        <span>Ou connectez-vous avec</span>
+                    </div>
+                    
+                    <div class="social-login">
+                        <button type="button" class="social-btn google">
+                            <i class="fab fa-google"></i> Google
+                        </button>
+                        <button type="button" class="social-btn facebook">
+                            <i class="fab fa-facebook-f"></i> Facebook
+                        </button>
+                    </div>
+                    
+                    <p class="switch-form">
+                        Pas de compte? <a href="register.html">S'inscrire</a>
+                    </p>
+                </form>
+            </div>
+        </div>
+        
+        <div class="welcome-section">
+            <h1>Bienvenue à nouveau!</h1>
+            <p>Connectez-vous pour accéder à votre compte et découvrir nos services.</p>
+            <div class="features">
+                <div class="feature">
+                    <i class="fas fa-shield-alt"></i>
+                    <h3>Sécurisé</h3>
+                    <p>Protection maximale de vos données</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-bolt"></i>
+                    <h3>Rapide</h3>
+                    <p>Accès instantané à votre compte</p>
+                </div>
+                <div class="feature">
+                    <i class="fas fa-headset"></i>
+                    <h3>Support 24/7</h3>
+                    <p>Assistance disponible à tout moment</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        function togglePassword(inputId) {
+            const input = document.getElementById(inputId);
+            const icon = input.nextElementSibling;
+            
+            if (input.type === 'password') {
+                input.type = 'text';
+                icon.classList.remove('fa-eye');
+                icon.classList.add('fa-eye-slash');
+            } else {
+                input.type = 'password';
+                icon.classList.remove('fa-eye-slash');
+                icon.classList.add('fa-eye');
+            }
+        }
+        
+        document.getElementById('loginForm').addEventListener('submit', function(e) {
+            e.preventDefault();
+            
+            const email = document.getElementById('loginEmail').value;
+            const password = document.getElementById('loginPassword').value;
+            
+            if (!email || !password) {
+                alert('Veuillez remplir tous les champs!');
+                return;
+            }
+            
+            alert('Connexion réussie! Redirection...');
+        });
+    </script>
+</body>
+</html>
